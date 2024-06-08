@@ -1,0 +1,60 @@
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.book-card {
+  width: calc(25% - 20px);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+}
+
+@media screen and (max-width: 1200px) {
+  .book-card {
+    width: calc(33.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .book-card {
+    width: calc(50% - 20px);
+  }
+}
+
+.book-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.book-card p {
+  margin: 5px 0;
+}
+
+/* button*/
+
+.addButton {
+}
+.addButton button {
+  width: 100%;
+  font-size: 18px;
+  padding: 8px;
+  background-color: #fe5f55;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.addButton button:hover {
+  transition: 1s ease-in;
+  background-color: #e7483c;
+}

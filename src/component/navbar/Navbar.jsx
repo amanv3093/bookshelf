@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import "./Navbar.css";
-import { useState, useRef } from "react";
 import AddBookshelf from "../addBookshelf/AddBookshelf";
 import logo from "../../logo.png";
+import { UseContext } from "../../context/Context";
+
 function Navbar() {
+  let { query, setQuery, results, setResults, handleSearch, loading } =
+    UseContext();
   const [isActive, setIsActive] = useState(false);
   const searchInputRef = useRef(null);
 
@@ -23,7 +26,7 @@ function Navbar() {
   return (
     <header>
       <div className="logo">
-        <img src={logo} width="200px" />
+        <img src={logo} width="200px" alt="Logo" />
       </div>
       <div className="box2">
         <div className={`search-wrapper ${isActive ? "active" : ""}`}>
@@ -33,6 +36,8 @@ function Navbar() {
               className="search-input"
               placeholder="Type to search"
               ref={searchInputRef}
+              onChange={handleSearch}
+              value={query}
             />
             <button className="search-icon" onClick={searchToggle}>
               {isActive ? (
@@ -44,7 +49,7 @@ function Navbar() {
           </div>
         </div>
 
-        <h1 className="text"> MyBookshelf</h1>
+        <h1 className="text">MyBookshelf</h1>
       </div>
     </header>
   );
