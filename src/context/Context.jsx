@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   useContext,
   useState,
@@ -23,7 +23,7 @@ export const ContextProvider = (props) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://openlibrary.org/search.json?q=YOUR_QUERY&limit=10&page=2`
+        `https://openlibrary.org/search.json?q=YOUR_QUERY&limit=10&page=1`
       );
       setResults(response.data.docs);
     } catch (error) {
@@ -41,7 +41,7 @@ export const ContextProvider = (props) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://openlibrary.org/search.json?title=${value}&limit=10`
+        `https://openlibrary.org/search.json?title=${value}&limit=10&page=1`
       );
       setResults(response.data.docs);
     } catch (error) {
@@ -67,9 +67,36 @@ export const ContextProvider = (props) => {
     }
   };
 
+  const addBookToLocalStorage = (book) => {
+    const existingBooks = JSON.parse(localStorage.getItem("bookshelf")) || [];
+    const updatedBooks = [...existingBooks, book];
+    localStorage.setItem("bookshelf", JSON.stringify(updatedBooks));
+  };
+
+  const isBookInLocalStorage = (book) => {
+    const existingBooks = JSON.parse(localStorage.getItem("bookshelf")) || [];
+    return existingBooks.some((b) => b.key === book.key);
+  };
+
+  const removeBookFromLocalStorage = (bookKey) => {
+    const existingBooks = JSON.parse(localStorage.getItem("bookshelf")) || [];
+    const updatedBooks = existingBooks.filter((book) => book.key !== bookKey);
+    localStorage.setItem("bookshelf", JSON.stringify(updatedBooks));
+  };
+
   return (
     <Context.Provider
-      value={{ query, setQuery, results, setResults, handleSearch, loading }}
+      value={{
+        query,
+        setQuery,
+        results,
+        setResults,
+        handleSearch,
+        loading,
+        addBookToLocalStorage,
+        isBookInLocalStorage,
+        removeBookFromLocalStorage,
+      }}
     >
       {props.children}
     </Context.Provider>

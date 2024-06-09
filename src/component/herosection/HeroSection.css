@@ -8,14 +8,38 @@
 
 .book-card {
   width: calc(25% - 20px);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: hidden;
   border-radius: 5px;
-  padding: 15px;
+
   background-color: #333;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 250px;
+}
+.inner-box1 {
+}
+.inner-box1 img {
+  width: 100%;
+  height: 240px;
+}
+
+.addButton {
+}
+.addButton button {
+  width: 100%;
+  font-size: 18px;
+  padding: 8px;
+  background-color: #fe5f55;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.addButton button:hover {
+  transition: 1s ease-in;
+  background-color: #e7483c;
 }
 
 @media screen and (max-width: 1200px) {
@@ -40,21 +64,3 @@
 }
 
 /* button*/
-
-.addButton {
-}
-.addButton button {
-  width: 100%;
-  font-size: 18px;
-  padding: 8px;
-  background-color: #fe5f55;
-  border: none;
-  border-radius: 20px;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-}
-.addButton button:hover {
-  transition: 1s ease-in;
-  background-color: #e7483c;
-}

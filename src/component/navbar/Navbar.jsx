@@ -3,7 +3,9 @@ import "./Navbar.css";
 import AddBookshelf from "../addBookshelf/AddBookshelf";
 import logo from "../../logo.png";
 import { UseContext } from "../../context/Context";
-
+import bookLogo from "../../assests/book-sign-white-icon-with-soft-shadow-vector-15481031.webp";
+import { NavLink } from "react-router-dom";
+//book-sign-white-icon-with-soft-shadow-vector-15481031.webp
 function Navbar() {
   let { query, setQuery, results, setResults, handleSearch, loading } =
     UseContext();
@@ -49,7 +51,17 @@ function Navbar() {
           </div>
         </div>
 
-        <h1 className="text">MyBookshelf</h1>
+        {/* <img src={bookLogo} /> */}
+        <NavLink
+          to="/bookShelf"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          <div className="text">
+            <span>My</span>
+
+            <span>BOOKSHELF</span>
+          </div>
+        </NavLink>
       </div>
     </header>
   );

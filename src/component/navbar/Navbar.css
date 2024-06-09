@@ -1,10 +1,20 @@
+body {
+  background: #212129;
+  margin: 0;
 
+  color: #fff;
+
+  font-family: sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 .text {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 900;
   letter-spacing: 0.3px;
   word-spacing: 1px;
-  border: 1px solid wheat;
+  display: flex;
+  flex-direction: column;
 }
 header {
   display: flex;

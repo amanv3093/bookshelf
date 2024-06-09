@@ -4,12 +4,21 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ContextProvider } from "./context/Context";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AddBookshelf from "./component/addBookshelf/AddBookshelf";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+let router = createBrowserRouter([
+  { path: "/", element: <App /> },
+  { path: "/bookShelf", element: <AddBookshelf/> },
+  
+]);
 root.render(
   <React.StrictMode>
     <ContextProvider>
-      <App />
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
     </ContextProvider>
   </React.StrictMode>
 );
