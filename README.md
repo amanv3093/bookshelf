@@ -1,6 +1,14 @@
-# Personal Bookshelf
+## Personal Bookshelf 
 
-This project aims to create a web application using React that allows users to search for books using the Open Library API and save them to a personal bookshelf.
+This React application allows users to search for books using the Open Library API and maintain a personal bookshelf in the browser using localStorage.
+
+## Tech Stack
+
+- HTML: For the structure of the web pages.
+- CSS: For styling the components.
+- JavaScript: For implementing the functionality.
+- React: For managing state and components.
+
 
 ## Features Implemented
 
@@ -47,3 +55,5 @@ Proper React Component Structure and Interactivity: Components structured in a l
 Smooth User Experience and Intuitive Interface: Intuitive interface for searching books and managing personal bookshelf.
 
 Effective Styling and Layout Presentation: Styling enhances the user experience and makes the interface visually appealing.
+
+## Demo : [https://bookshelf-mu-three.vercel.app/]
