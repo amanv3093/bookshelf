@@ -18,14 +18,17 @@ export const ContextProvider = (props) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const fetchAllData = async () => {
+  const fetchAllData = async (page = 1) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://openlibrary.org/search.json?q=YOUR_QUERY&limit=10&page=1`
+        `https://openlibrary.org/search.json?q=YOUR_QUERY&limit=10&page=${page}`
       );
       setResults(response.data.docs);
+      setTotalPages(Math.ceil(response.data.numFound / 10)); // Assuming numFound is total number of results
     } catch (error) {
       console.error("Error fetching all data:", error);
     } finally {
@@ -34,16 +37,17 @@ export const ContextProvider = (props) => {
   };
 
   useEffect(() => {
-    fetchAllData();
-  }, []);
+    fetchAllData(page);
+  }, [page]);
 
-  const fetchSearchResults = async (value) => {
+  const fetchSearchResults = async (value, page = 1) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://openlibrary.org/search.json?title=${value}&limit=10&page=1`
+        `https://openlibrary.org/search.json?title=${value}&limit=10&page=${page}`
       );
       setResults(response.data.docs);
+      setTotalPages(Math.ceil(response.data.numFound / 10));
     } catch (error) {
       console.error("Error fetching search results:", error);
     } finally {
@@ -59,11 +63,20 @@ export const ContextProvider = (props) => {
   const handleSearch = (e) => {
     const value = e.target.value;
     setQuery(value);
-
+    setPage(1);
     if (value.length > 1) {
-      debouncedFetchSearchResults(value);
+      debouncedFetchSearchResults(value, 1);
     } else if (value.length === 0) {
-      fetchAllData();
+      fetchAllData(1);
+    }
+  };
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+    if (query.length > 1) {
+      fetchSearchResults(query, value);
+    } else {
+      fetchAllData(value);
     }
   };
 
@@ -93,9 +106,14 @@ export const ContextProvider = (props) => {
         setResults,
         handleSearch,
         loading,
+        page,
+        setPage,
+        totalPages,
+        handlePageChange,
         addBookToLocalStorage,
         isBookInLocalStorage,
         removeBookFromLocalStorage,
+        fetchAllData,
       }}
     >
       {props.children}

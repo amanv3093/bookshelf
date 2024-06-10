@@ -50,7 +50,7 @@
 
 @media screen and (max-width: 768px) {
   .book-card {
-    width: calc(50% - 20px);
+    width: 100%;
   }
 }
 
@@ -62,5 +62,31 @@
 .book-card p {
   margin: 5px 0;
 }
-
+.css-1oj2twp-MuiPagination-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0px;
+}
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root {
+  color: white !important;
+}
+.loader-sv {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 120px);
+  align-items: center;
+}
 /* button*/
+/* @media (max-width: 620px) {
+  .hero-section {
+    justify-content: space-between;
+    gap: 10px;
+  }
+} */
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .book-card {
+    width: calc(50% - 20px);
+  }
+}

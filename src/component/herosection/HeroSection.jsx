@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import { UseContext } from "../../context/Context";
 import "./HeroSection.css";
 import img2 from "../../assests/photo-1532012197267-da84d127e765 (1).avif";
-import loader from "../../assests/Spinner@1x-1.0s-200px-200px (1).gif";
-import { Pagination } from "@mui/material";
 
+import { Pagination } from "@mui/material";
+import { Audio } from "react-loader-spinner";
 const HeroSection = () => {
-  const { results, loading, addBookToLocalStorage, isBookInLocalStorage } =
-    UseContext();
+  const {
+    results,
+    loading,
+    addBookToLocalStorage,
+    isBookInLocalStorage,
+    page,
+    totalPages,
+    handlePageChange,
+  } = UseContext();
   const [addedBooks, setAddedBooks] = useState([]);
 
   useEffect(() => {
@@ -25,7 +32,17 @@ const HeroSection = () => {
     <>
       <div>
         {loading ? (
-          <img src={loader} alt="Loading..." />
+          <div className="loader-sv">
+            <Audio
+              height="80"
+              width="80"
+              radius="9"
+              color="#fe5f55"
+              ariaLabel="loading"
+              wrapperStyle
+              wrapperClass
+            />
+          </div>
         ) : results.length > 0 ? (
           <>
             <div className="hero-section">
@@ -65,10 +82,15 @@ const HeroSection = () => {
                 </div>
               ))}
             </div>
-            <Pagination count={10} color="primary" />
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={handlePageChange}
+              color="primary"
+            />
           </>
         ) : (
-          <div>No results found</div>
+          <div className="noFound"> No results found</div>
         )}
       </div>
     </>
