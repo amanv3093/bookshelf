@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import "./Navbar.css";
-import AddBookshelf from "../addBookshelf/AddBookshelf";
+
 import logo from "../../logo.png";
 import { UseContext } from "../../context/Context";
-import bookLogo from "../../assests/book-sign-white-icon-with-soft-shadow-vector-15481031.webp";
+
 import { NavLink } from "react-router-dom";
-//book-sign-white-icon-with-soft-shadow-vector-15481031.webp
+
 function Navbar() {
   let { query, setQuery, handleSearch, fetchAllData } = UseContext();
   const [isActive, setIsActive] = useState(false);

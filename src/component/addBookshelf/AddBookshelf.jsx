@@ -36,7 +36,7 @@ const AddBookshelf = () => {
                 </div>
               </div>
             </div>
-            <div className="deleteButton" style={{ padding: "15px" }}>
+            <div className="deleteButton addButton" style={{ padding: "15px" }}>
               <button onClick={() => removeBookFromLocalStorage(book.key)}>
                 Remove from Bookshelf
               </button>
@@ -44,7 +44,7 @@ const AddBookshelf = () => {
           </div>
         ))
       ) : (
-        <div>No books in bookshelf</div>
+        <div className="NoBook">No books in bookshelf</div>
       )}
     </div>
   );

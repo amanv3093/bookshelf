@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Personal Bookshelf
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project aims to create a web application using React that allows users to search for books using the Open Library API and save them to a personal bookshelf.
 
-## Available Scripts
+## Features Implemented
 
-In the project directory, you can run:
+# Book Search Page:
 
-### `npm start`
+<img src="./src/assests/Screenshot from 2024-06-10 12-52-38.png"/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Input field for users to type in a book's name.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Real-time display of search results as the user types.
 
-### `npm test`
+Utilizes the Open Library API for fetching search results.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Displays search results in a list of cards.
 
-### `npm run build`
+# Personal Bookshelf Page:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="./src/assests/Screenshot from 2024-06-10 12-53-06.png"/>
+Users can add books from the search results to their personal bookshelf.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Utilizes the Web Storage API (localStorage) to store the user's bookshelf persistently.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Separate page to display the user's personal bookshelf.
 
-### `npm run eject`
+Button on the search results page directs users to their personal bookshelf page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Tech Stack & Styling:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="./src/assests/Screenshot from 2024-06-10 12-53-31.png"/>
+Initialized with Create React App (CRA).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Styling done using CSS modules.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Client-side rendering only; no server-side rendering.
 
-## Learn More
+Responsive design for both pages.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Evaluation Criteria
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Efficient API Usage and Data Fetching: Proper usage of the Open Library API for fetching search results.
 
-### Code Splitting
+Proper React Component Structure and Interactivity: Components structured in a logical manner, with clear separation of concerns.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Smooth User Experience and Intuitive Interface: Intuitive interface for searching books and managing personal bookshelf.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Effective Styling and Layout Presentation: Styling enhances the user experience and makes the interface visually appealing.

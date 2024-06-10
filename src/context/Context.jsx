@@ -28,7 +28,7 @@ export const ContextProvider = (props) => {
         `https://openlibrary.org/search.json?q=YOUR_QUERY&limit=10&page=${page}`
       );
       setResults(response.data.docs);
-      setTotalPages(Math.ceil(response.data.numFound / 10)); // Assuming numFound is total number of results
+      setTotalPages(Math.ceil(response.data.numFound / 10)); 
     } catch (error) {
       console.error("Error fetching all data:", error);
     } finally {
